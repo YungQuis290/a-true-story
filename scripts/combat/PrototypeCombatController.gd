@@ -3,6 +3,7 @@ extends Node2D
 # Scene references.
 @onready var player: CombatActor = $Player
 @onready var test_npc: CombatActor = $TestNPC
+@onready var npc_ai: BasicNpcAI = $TestNPC/BasicNpcAI
 
 # Simple UI labels created in code.
 var warning_label: Label
@@ -22,6 +23,9 @@ func _ready() -> void:
 	# Apply JSON data to the actors.
 	player.apply_data(player_data)
 	test_npc.apply_data(npc_data)
+
+	# Give the NPC AI its target.
+	npc_ai.set_target(player)
 
 	print("Player loaded: ", player.actor_name)
 	print("NPC loaded: ", test_npc.actor_name)
@@ -45,8 +49,8 @@ func _process(_delta: float) -> void:
 	player.velocity = input_vector.normalized() * player.move_speed
 	player.move_and_slide()
 
-	# Hold Shift to make NPC block for testing.
-	test_npc.is_blocking = Input.is_key_pressed(KEY_SHIFT)
+	# Hold Shift to make NPC block for testing. (DISABLED)
+	# test_npc.is_blocking = Input.is_key_pressed(KEY_SHIFT)
 
 	# Update danger / reaction labels.
 	_update_danger_and_reaction()
