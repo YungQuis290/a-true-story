@@ -1,0 +1,24 @@
+{
+  "id": "npc_test",
+  "display_name": "Test Raider",
+  "core_attributes": {
+    "vigor": 10,
+    "endurance": 10,
+    "might": 14,
+    "dexterity": 10,
+    "insight": 8,
+    "spirit": 8,
+    "technique": 9,
+    "fate": 5
+  },
+  "combat_state": {
+    "health": 100,
+    "stamina": 80,
+    "momentum": 0,
+    "calm": 35
+  },
+  "weapon": {
+    "base_impact": 24,
+    "reach": 35
+  }
+}

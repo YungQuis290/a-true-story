@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bh44kl23ombui"]
+
+[ext_resource type="Script" uid="uid://ch0momkc4yjfm" path="res://scripts/combat/TestCombatMath.gd" id="1_soidv"]
+
+[node name="Node" type="Node" unique_id=2108019922]
+script = ExtResource("1_soidv")

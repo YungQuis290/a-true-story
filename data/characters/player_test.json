@@ -1,0 +1,24 @@
+{
+  "id": "player_test",
+  "display_name": "Test Captain",
+  "core_attributes": {
+    "vigor": 12,
+    "endurance": 12,
+    "might": 10,
+    "dexterity": 14,
+    "insight": 16,
+    "spirit": 12,
+    "technique": 13,
+    "fate": 8
+  },
+  "combat_state": {
+    "health": 120,
+    "stamina": 100,
+    "momentum": 0,
+    "calm": 50
+  },
+  "weapon": {
+    "base_impact": 20,
+    "reach": 40
+  }
+}
