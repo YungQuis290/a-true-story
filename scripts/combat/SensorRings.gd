@@ -1,52 +1,53 @@
 extends Node2D
 class_name SensorRings
 
-# The actor this ring belongs to.
-# We will grab the parent because SensorRings will sit under Player.
+# This node should be a child of a CombatActor.
+# Example:
+# Player
+# └── SensorRings
+#
+# Because of that, we read the parent as the owning actor.
 @onready var actor: CombatActor = get_parent() as CombatActor
 
-func _ready() -> void:
-	# Tell Godot to draw this node.
-	queue_redraw()
-
-func _process(delta: float) -> void:
-	# Redraw every frame so the rings update if stats change.
+func _process(_delta: float) -> void:
+	# Redraw every frame so the ring sizes stay updated if stats change.
 	queue_redraw()
 
 func _draw() -> void:
+	# If the parent is missing or not a CombatActor, do nothing.
 	if actor == null:
 		return
-	
-	# Perception ring:
-	# This represents how far the character can sense danger.
-	var perception_radius: float = CombatMath.perception_radius(
+
+	# Blue ring = perception / danger sensing radius.
+	var perception_ring_radius: float = CombatMath.perception_radius(
 		actor.insight,
 		actor.calm
 	)
-	
-	# Speed/reach ring:
-	# This represents how far the character can threaten or reach quickly.
-	var speed_reach_radius: float = CombatMath.speed_reach_radius(
+
+	# Red ring = real attack range.
+	# IMPORTANT:
+	# This uses the exact same math as the real attack check.
+	var attack_ring_radius: float = CombatMath.effective_attack_range(
 		actor.move_speed,
 		actor.weapon_reach,
-		40.0
+		20.0
 	)
-	
-	# Draw perception ring in blue.
+
+	# Draw the perception ring in blue.
 	draw_arc(
 		Vector2.ZERO,
-		perception_radius,
+		perception_ring_radius,
 		0.0,
 		TAU,
 		96,
 		Color(0.2, 0.5, 1.0, 0.9),
 		2.0
 	)
-	
-	# Draw speed/reach ring in red.
+
+	# Draw the attack ring in red.
 	draw_arc(
 		Vector2.ZERO,
-		speed_reach_radius,
+		attack_ring_radius,
 		0.0,
 		TAU,
 		96,
