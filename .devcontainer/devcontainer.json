@@ -1,0 +1,20 @@
+{
+  "name": "a-true-story-dev",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "geequlim.godot-tools",
+        "GitHub.codespaces"
+      ]
+    }
+  },
+  "forwardPorts": [8000]
+}
