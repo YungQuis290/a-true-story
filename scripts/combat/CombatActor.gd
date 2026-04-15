@@ -137,7 +137,8 @@ func attack_target(target: CombatActor) -> void:
 
 	if net > 0.0:
 		target.health -= net
-
+		target.show_hit_feedback(net)
+		
 		# Successful hit gives attacker momentum.
 		momentum = min(100.0, momentum + 12.0)
 
@@ -189,3 +190,18 @@ func try_dash(direction: Vector2) -> void:
 
 	print(actor_name, " dashed.")
 	print(actor_name, " Stamina: ", stamina)
+
+func show_hit_feedback(damage_amount: float) -> void:
+	# Play hit flash if this actor has a HitFlash child.
+	if has_node("HitFlash"):
+		var hit_flash: HitFlash = get_node("HitFlash") as HitFlash
+		hit_flash.play_flash()
+
+	# Create floating damage text.
+	var floating_text: FloatingText = FloatingText.new()
+	get_tree().current_scene.add_child(floating_text)
+
+	floating_text.setup(
+		"-" + str(int(damage_amount)),
+		global_position + Vector2(-10, -85)
+	)

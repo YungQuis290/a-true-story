@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dunjb1myiw58r" path="res://scripts/combat/SensorRings.gd" id="3_65v4s"]
 [ext_resource type="Script" uid="uid://cnw3sf5l5ns1n" path="res://scripts/combat/ActorBars.gd" id="4_1f4oj"]
 [ext_resource type="Script" uid="uid://d27g4gk1ac105" path="res://scripts/combat/BasicNpcAI.gd" id="5_56tm4"]
+[ext_resource type="Script" uid="uid://bjb1hdyyga8em" path="res://scripts/combat/ActorNameplate.gd" id="5_dy5ip"]
+[ext_resource type="Script" uid="uid://gractgi8sfq7" path="res://scripts/combat/HitFlash.gd" id="6_cljqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scra0"]
 
@@ -30,6 +32,14 @@ script = ExtResource("3_65v4s")
 [node name="StatusBars" type="Node2D" parent="Player" unique_id=159283848]
 script = ExtResource("4_1f4oj")
 
+[node name="NamePlate" type="Label" parent="Player" unique_id=1497337379]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("5_dy5ip")
+
+[node name="HitFlash" type="Node" parent="Player" unique_id=1867536896]
+script = ExtResource("6_cljqm")
+
 [node name="TestNPC" type="CharacterBody2D" parent="." unique_id=1434331846]
 position = Vector2(350, 200)
 script = ExtResource("1_scra0")
@@ -49,5 +59,14 @@ script = ExtResource("4_1f4oj")
 
 [node name="BasicNpcAI" type="Node" parent="TestNPC" unique_id=72132404]
 script = ExtResource("5_56tm4")
+
+[node name="NamePlate2" type="Label" parent="TestNPC" unique_id=557414960]
+offset_left = -150.0
+offset_right = -110.0
+offset_bottom = 23.0
+script = ExtResource("5_dy5ip")
+
+[node name="HitFlash2" type="Node" parent="TestNPC" unique_id=65789515]
+script = ExtResource("6_cljqm")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=551928606]
