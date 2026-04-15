@@ -1,4 +1,37 @@
-Node2D
-  Player
-  TestNPC
-  Camera2D
+[gd_scene format=3 uid="uid://bkylcdh2l4e72"]
+
+[ext_resource type="Script" uid="uid://dv1iwrgt5xp1m" path="res://scripts/combat/PrototypeCombatController.gd" id="1_o67o4"]
+[ext_resource type="Script" uid="uid://ljrdl05kxbxf" path="res://scripts/combat/CombatActor.gd" id="1_scra0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scra0"]
+
+[node name="PrototypeCombat" type="Node2D" unique_id=510377529]
+script = ExtResource("1_o67o4")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2758703]
+position = Vector2(200, 200)
+script = ExtResource("1_scra0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=655739508]
+shape = SubResource("RectangleShape2D_scra0")
+debug_color = Color(0, 0.10980392, 0.69803923, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=1854626928]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0.5420193, 0.12864122, 1)
+
+[node name="TestNPC" type="CharacterBody2D" parent="." unique_id=1434331846]
+position = Vector2(350, 200)
+script = ExtResource("1_scra0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TestNPC" unique_id=1905762728]
+shape = SubResource("RectangleShape2D_scra0")
+debug_color = Color(0, 0.10980392, 0.69803923, 0.41960785)
+
+[node name="ColorRect2" type="ColorRect" parent="TestNPC" unique_id=272312359]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.9764706, 0.2627451, 0.29411766, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=551928606]
