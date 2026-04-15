@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dv1iwrgt5xp1m" path="res://scripts/combat/PrototypeCombatController.gd" id="1_o67o4"]
 [ext_resource type="Script" uid="uid://ljrdl05kxbxf" path="res://scripts/combat/CombatActor.gd" id="1_scra0"]
 [ext_resource type="Script" uid="uid://dunjb1myiw58r" path="res://scripts/combat/SensorRings.gd" id="3_65v4s"]
+[ext_resource type="Script" uid="uid://cnw3sf5l5ns1n" path="res://scripts/combat/ActorBars.gd" id="4_1f4oj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scra0"]
 
@@ -25,6 +26,9 @@ color = Color(0, 0.5420193, 0.12864122, 1)
 [node name="SensorRings" type="Node2D" parent="Player" unique_id=2052013662]
 script = ExtResource("3_65v4s")
 
+[node name="StatusBars" type="Node2D" parent="Player" unique_id=159283848]
+script = ExtResource("4_1f4oj")
+
 [node name="TestNPC" type="CharacterBody2D" parent="." unique_id=1434331846]
 position = Vector2(350, 200)
 script = ExtResource("1_scra0")
@@ -37,5 +41,9 @@ debug_color = Color(0, 0.10980392, 0.69803923, 0.41960785)
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.9764706, 0.2627451, 0.29411766, 1)
+
+[node name="StatusBars2" type="Node2D" parent="TestNPC" unique_id=1742355717]
+position = Vector2(-150, 0)
+script = ExtResource("4_1f4oj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=551928606]
