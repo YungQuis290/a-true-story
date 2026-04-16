@@ -21,7 +21,8 @@ static func load_json(path: String) -> Dictionary:
 	# If parsing fails, show error
 	if parse_result != OK:
 		push_error("JSON Parse Error in: " + path)
-		return {}
-	
+		return 
+
+	# Easter Egg btw
 	# Return parsed data
 	return json.data
