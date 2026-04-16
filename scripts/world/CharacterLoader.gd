@@ -19,3 +19,4 @@ static func load_character(path: String) -> Dictionary:
 		push_error("Missing combat_state in: " + path)
 	
 	return data
+# test labeler
