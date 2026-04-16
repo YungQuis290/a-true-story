@@ -1,0 +1,88 @@
+# =====================================================
+# LABELER CONFIG FOR GODOT PROJECT
+# Labels must already exist in GitHub
+# =====================================================
+
+# 🧩 scenes
+# Changes to Godot scenes (.tscn), level layout, or UI structure
+scenes:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "scenes/**"
+          - "**/*.tscn"
+
+# 🧠 scripts
+# Changes to game logic scripts (GDScript/C#)
+scripts:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "scripts/**"
+          - "**/*.gd"
+          - "**/*.cs"
+
+# 🎨 assets
+# Art, audio, textures, sprites, etc.
+assets:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "assets/**"
+          - "**/*.png"
+          - "**/*.jpg"
+          - "**/*.jpeg"
+          - "**/*.webp"
+          - "**/*.wav"
+          - "**/*.mp3"
+          - "**/*.ogg"
+
+# 🎮 gameplay
+# Core gameplay systems and mechanics
+gameplay:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "scripts/gameplay/**"
+
+# ⚔️ combat
+# Combat systems, abilities, damage logic
+combat:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "scripts/combat/**"
+
+# 🖥️ ui
+# UI, HUD, menus, interaction elements
+ui:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "scenes/ui/**"
+          - "scripts/ui/**"
+
+# 📚 docs
+# Documentation updates
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/**"
+          - "**/*.md"
+          - "README.md"
+
+# ⚙️ ci
+# GitHub Actions, workflows, automation
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+
+# 🐛 bug
+# Fixes for broken behavior
+bug:
+  - head-branch:
+      - "^fix"
+      - "^bug"
+      - "^hotfix"
+
+# ✨ feature
+# New features or enhancements
+feature:
+  - head-branch:
+      - "^feature"
+      - "^feat"
