@@ -3,86 +3,83 @@
 # Labels must already exist in GitHub
 # =====================================================
 
-# 🧩 scenes
-# Changes to Godot scenes (.tscn), level layout, or UI structure
+# Limit noisy PRs from getting too many file-based labels
+changed-files-labels-limit: 4
+
+# scenes
+# Changes to Godot scenes (.tscn) and scene files inside the scenes folder
 scenes:
   - changed-files:
       - any-glob-to-any-file:
-          - "scenes/**"
-          - "**/*.tscn"
+          - "scenes/**/*.tscn"
+          - "scenes/**/*.tres"
 
-# 🧠 scripts
-# Changes to game logic scripts (GDScript/C#)
+# scripts
+# Changes to non-UI game scripts
 scripts:
   - changed-files:
       - any-glob-to-any-file:
-          - "scripts/**"
-          - "**/*.gd"
-          - "**/*.cs"
+          - "scripts/**/*.gd"
+          - "scripts/**/*.cs"
+      - all-globs-to-all-files:
+          - "!scripts/ui/**"
 
-# 🎨 assets
-# Art, audio, textures, sprites, etc.
+# assets
+# Changes to game art, audio, and other assets inside assets/
 assets:
   - changed-files:
       - any-glob-to-any-file:
           - "assets/**"
-          - "**/*.png"
-          - "**/*.jpg"
-          - "**/*.jpeg"
-          - "**/*.webp"
-          - "**/*.wav"
-          - "**/*.mp3"
-          - "**/*.ogg"
 
-# 🎮 gameplay
-# Core gameplay systems and mechanics
+# gameplay
+# Changes to core gameplay systems
 gameplay:
   - changed-files:
       - any-glob-to-any-file:
           - "scripts/gameplay/**"
 
-# ⚔️ combat
-# Combat systems, abilities, damage logic
+# combat
+# Changes to combat systems
 combat:
   - changed-files:
       - any-glob-to-any-file:
           - "scripts/combat/**"
 
-# 🖥️ ui
-# UI, HUD, menus, interaction elements
+# ui
+# Changes to UI scenes or UI scripts
 ui:
   - changed-files:
       - any-glob-to-any-file:
           - "scenes/ui/**"
           - "scripts/ui/**"
 
-# 📚 docs
+# docs
 # Documentation updates
 docs:
   - changed-files:
       - any-glob-to-any-file:
           - "docs/**"
-          - "**/*.md"
           - "README.md"
+          - "*.md"
 
-# ⚙️ ci
-# GitHub Actions, workflows, automation
+# ci
+# GitHub workflows and automation
 ci:
   - changed-files:
       - any-glob-to-any-file:
           - ".github/**"
 
-# 🐛 bug
-# Fixes for broken behavior
+# bug
+# Fix branches
 bug:
   - head-branch:
-      - "^fix"
-      - "^bug"
-      - "^hotfix"
+      - "^fix($|/|-)"
+      - "^bug($|/|-)"
+      - "^hotfix($|/|-)"
 
-# ✨ feature
-# New features or enhancements
+# feature
+# Feature branches
 feature:
   - head-branch:
-      - "^feature"
-      - "^feat"
+      - "^feature($|/|-)"
+      - "^feat($|/|-)"
